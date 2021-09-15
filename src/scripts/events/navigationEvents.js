@@ -1,6 +1,14 @@
-/*
-import signOut from '../helpers/auth/signOut';
+import orderForm from '../components/forms/orderForm';
+// import signOut from '../helpers/auth/signOut';
+// navigation events
+const navigationEvents = () => {
+  // CREATE AN ORDER
+  document.querySelector('#create-order').addEventListener('click', () => {
+    orderForm();
+  });
+};
 
+/*
 // navigation events
 const navigationEvents = () => {
   // LOGOUT BUTTON
@@ -23,6 +31,5 @@ const navigationEvents = () => {
     console.warn(searchValue);
   });
 };
-
-export default navigationEvents;
 */
+export default navigationEvents;
