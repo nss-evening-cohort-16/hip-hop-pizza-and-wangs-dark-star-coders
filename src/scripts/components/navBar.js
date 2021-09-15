@@ -1,7 +1,7 @@
 const navBar = () => {
   document.querySelector('#navigation').innerHTML = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
-        <a class="navbar-brand title" href="#">hip-hop-pizza-and-wangs</a>
+        <a class="navbar-brand title" href="#">HHP&W</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -32,7 +32,7 @@ const navBar = () => {
             />
             </li>
           </ul>
-          <div id="logout-button"></div>
+          <div id="signout-button"></div>
         </div>
       </nav>
     `;
