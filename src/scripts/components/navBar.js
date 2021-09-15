@@ -1,9 +1,9 @@
 const navBar = () => {
   document.querySelector('#navigation').innerHTML = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
-        <a class="navbar-brand title" href="#">nss-evening-cohort-16
-        /
-        hip-hop-pizza-and-wangs</a>
+        <a class="navbar-brand title" href="#">
+        h
+        .ip Hop-pizza-and-wangs</a>
         <button
           class="navbar-toggler"
           type="button"
