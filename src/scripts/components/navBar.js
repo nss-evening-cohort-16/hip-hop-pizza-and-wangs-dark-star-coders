@@ -23,7 +23,7 @@ const navBar = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="create-an-order">Create an Order</a>
+              <a class="nav-link" href="#" id="create-order">Create an Order</a>
             </li>
             <li>
             <input
