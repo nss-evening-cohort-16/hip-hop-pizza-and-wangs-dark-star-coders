@@ -1,6 +1,7 @@
-import selectOrderType from './orderType';
+import clearDom from '../../helpers/data/clearDom';
 
 const orderForm = (uid, obj = {}) => {
+  clearDom();
   document.querySelector('#form-container').innerHTML = `
         <form id="submit-order-form" class="mb-4">
           <div class="form-group">
@@ -8,20 +9,15 @@ const orderForm = (uid, obj = {}) => {
             <input type="text" class="form-control" id="orderName" aria-describedby="orderName" placeholder="Enter Customer Name" value="${obj.name || ''}" required>
           </div>
           <div class="form-group">
-            <label for="orderName">Order Name</label>
-            <input type="text" class="form-control" id="orderName" aria-describedby="orderName" placeholder="Enter Customer Name" value="${obj.name || ''}" required>
+            <label for="customerPhone">Customer Phone</label>
+            <input type="text" class="form-control" id="customerPhone" aria-describedby="customerPhone" placeholder="Enter Customer Phone" value="${obj.phone || ''}" required>
           </div>
           <div class="form-group">
-            <label for="orderName">Order Name</label>
-            <input type="text" class="form-control" id="orderName" aria-describedby="orderName" placeholder="Enter Customer Name" value="${obj.name || ''}" required>
+            <label for="customerEmail">Customer Email</label>
+            <input type="text" class="form-control" id="customerEmail" aria-describedby="customerEmail" placeholder="Enter Customer Email" value="${obj.email || ''}" required>
           </div>
-          </div>
-            <div class="form-group" id="select-tech">
-          </div>
-          <button type="submit" id="${obj.firebaseKey ? `update-tech--${obj.firebaseKey}` : 'submit-tech'}" class="btn btn-primary">Submit Tech</button>
+          <button type="submit" id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="btn btn-primary">Create/Edit Order</button>
         </form>`;
-
-  selectOrderType(uid, `${obj.orderType || ''}`);
 };
 
 export default orderForm;
