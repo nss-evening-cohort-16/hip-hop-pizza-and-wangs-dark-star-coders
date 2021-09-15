@@ -1,0 +1,12 @@
+{
+    "-MTpclfzY9GLtKDsDYTs_": {
+      "firebaseKey": "-MTpclfzY9GLtKDsDYTs_",
+      "name": "Harika",
+      "phone": "123-456-7890",
+      "email":"orders@gmail.com",
+      "orderType":"Phone-in",
+      "paymentType":"Credit",
+      "tip":"5",
+      "orderTotal": "75"
+      
+    }}
