@@ -1,16 +1,23 @@
 import orderForm from '../components/forms/orderForm';
+import logoutButton from '../components/logoutButton';
+import clearDom from '../helpers/data/clearDom';
 // import signOut from '../helpers/auth/signOut';
 // navigation events
 const navigationEvents = () => {
-  // CREATE AN ORDER
   document.querySelector('#create-order').addEventListener('click', () => {
     orderForm();
+  });
+
+  document.querySelector('#signout-button').addEventListener('click', () => {
+    logoutButton();
+  });
+
+  document.querySelector('#view-order').addEventListener('click', () => {
+    clearDom();
   });
 };
 
 /*
-// navigation events
-const navigationEvents = () => {
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
