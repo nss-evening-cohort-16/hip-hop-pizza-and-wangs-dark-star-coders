@@ -1,5 +1,6 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
+import { createOrder, deleteOrder, updateOrder } from '../helpers/data/orderData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -31,6 +32,21 @@ const domEvents = () => {
       };
       console.warn(orderObj);
       createOrder(orderObj).then((ordersArray) => showOrders(ordersArray));
+    }
+    // CLICK EVENT FOR EDITING A BOOK
+    if (e.target.id.includes('update-book')) {
+      e.preventDefault();
+      const getKey = e.target.id.split('--');
+      const [, firebaseKey] = getKey;
+      const bookObj = {
+        title: document.querySelector('#title').value,
+        image: document.querySelector('#image').value,
+        price: document.querySelector('#price').value,
+        sale: document.querySelector('#sale').checked,
+        author_id: document.querySelector('#select-author').value,
+        firebaseKey
+      };
+      updateOrder(bookObj).then(showOrders);
     }
   });
 };
