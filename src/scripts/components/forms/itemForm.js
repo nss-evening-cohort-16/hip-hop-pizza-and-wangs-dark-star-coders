@@ -1,6 +1,6 @@
 import clearDom from '../../helpers/data/clearDom';
 
-const itemForm = (uid, obj = {}) => {
+const itemForm = (obj = {}) => {
   clearDom();
   document.querySelector('#form-container').innerHTML = `
         <form id="submit-item-form" class="mb-4">
