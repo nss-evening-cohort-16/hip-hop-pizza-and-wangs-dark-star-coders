@@ -4,12 +4,12 @@ import firebaseConfig from '../../../api/apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 const getOrderType = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orderType.json`)
+  axios.get(`${dbUrl}/taco.json`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
 
-const orderType = (typeId) => {
+const selectOrderType = (typeId) => {
   let domString = `<label for="orderType">Select Order Type</label>
       <select class="form-control" id="typeId" required>
       <option value="">Select an Order Type</option>`;
@@ -21,7 +21,7 @@ const orderType = (typeId) => {
 
     domString += '</select>';
 
-    document.querySelector('#select-author').innerHTML = domString;
+    document.querySelector('#select-orderType').innerHTML = domString;
   });
 };
 
@@ -31,7 +31,7 @@ const getPaymentType = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const paymentType = (paymentId) => {
+const selectPaymentType = (paymentId) => {
   let domString = `<label for="paymentType">Select Payment Type</label>
         <select class="form-control" id="paymentId" required>
         <option value="">Select an Payment Type</option>`;
@@ -47,4 +47,4 @@ const paymentType = (paymentId) => {
   });
 };
 
-export { orderType, paymentType };
+export { selectOrderType, selectPaymentType };
