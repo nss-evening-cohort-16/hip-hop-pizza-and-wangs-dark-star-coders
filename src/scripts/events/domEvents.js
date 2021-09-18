@@ -1,5 +1,6 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
+import viewOrder from '../components/viewOrder';
 import {
   createOrder, deleteOrder, getOneOrder, updateOrder, viewOrderDetails
 } from '../helpers/data/orderData';
@@ -28,9 +29,6 @@ const domEvents = () => {
         email: document.querySelector('#email').value,
         phone: document.querySelector('#phone').value,
         orderType: document.querySelector('#orderType').value,
-        orderTotal: document.querySelector('#orderTotal').checked,
-        paymentType: document.querySelector('#paymentType').value,
-        tip: document.querySelector('#tip').value
       };
       console.warn(orderObj);
       createOrder(orderObj).then((ordersArray) => showOrders(ordersArray));
@@ -61,7 +59,7 @@ const domEvents = () => {
 
     if (e.target.id.includes('view-order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      viewOrderDetails(firebaseKey).then(showOrders);
+      viewOrderDetails(firebaseKey).then(viewOrder);
     }
   });
 };

@@ -22,7 +22,7 @@ const getOneOrder = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const createOrder = (orderObject) => new Promise((resolve, reject) => {
-  axios.post(`${dbUrl}/oder.json`, orderObject)
+  axios.post(`${dbUrl}/order.json`, orderObject)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/order/${response.data.name}.json`, body)
@@ -39,7 +39,7 @@ const updateOrder = (orderObject) => new Promise((resolve, reject) => {
 });
 
 const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/order.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
+  axios.get(`${dbUrl}/item.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
