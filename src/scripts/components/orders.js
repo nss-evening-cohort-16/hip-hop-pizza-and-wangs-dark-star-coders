@@ -14,9 +14,7 @@ const showOrders = (array) => {
       <li class="list-group-item">${item.email}</li>
       <li class="list-group-item">${item.phone}</li>
       <li class="list-group-item">${item.orderType}</li>
-      <li class="list-group-item">${item.orderTotal}</li>
-      <li class="list-group-item">${item.paymentType}</li>
-      <li class="list-group-item">${item.tip}</li>
+      <li class="list-group-item">${item.orderStatus}</li>
     </ul>
     <i class="btn btn-success fas fa-eye" id="view-order-btn--${item.firebaseKey}"></i>
             <i id="edit-order-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
