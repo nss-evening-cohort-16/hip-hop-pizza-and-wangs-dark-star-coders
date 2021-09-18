@@ -52,16 +52,6 @@ const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
   }).catch(reject);
 });
 
-const viewOrderDetails = (orderfirebaseKey) => new Promise((resolve, reject) => {
-  getOneOrder(orderfirebaseKey)
-    .then((orderId) => {
-      getOrderItems(orderId.firebaseKey)
-        .then((itemObject) => {
-          resolve({ itemObject, ...orderId });
-        });
-    }).catch(reject);
-});
-
 export {
-  getOrders, deleteOrder, getOneOrder, createOrder, updateOrder, getOrderItems, deleteOrderItems, viewOrderDetails
+  getOrders, deleteOrder, getOneOrder, createOrder, updateOrder, getOrderItems, deleteOrderItems
 };
