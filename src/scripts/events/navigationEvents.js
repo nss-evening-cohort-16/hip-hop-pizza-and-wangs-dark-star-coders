@@ -1,7 +1,8 @@
 import orderForm from '../components/forms/orderForm';
 import logoutButton from '../components/logoutButton';
 import clearDom from '../helpers/data/clearDom';
-// import signOut from '../helpers/auth/signOut';
+import { showOrders } from '../components/orders';
+import { createOrder } from '../helpers/data/orderData';
 // navigation events
 const navigationEvents = () => {
   document.querySelector('#create-order').addEventListener('click', () => {
@@ -15,28 +16,14 @@ const navigationEvents = () => {
   document.querySelector('#view-order').addEventListener('click', () => {
     clearDom();
   });
-};
-
-/*
+  /*
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
-
-  // VIEW ORDER
-  document.querySelector('#view-order').addEventListener('click', () => {
-    viewOrder().then((ordersArray) => showOrder(ordersArray));
-  });
-
+*/
   // CREATE AN ORDER
   document.querySelector('#create-order').addEventListener('click', () => {
-    createOrder().then((ordersArray) => showOrder(ordersArray));
-  });
-
-  // SEARCH
-  document.querySelector('#search').addEventListener('keyup', (e) => {
-    const searchValue = document.querySelector('#search').value.toLowerCase();
-    console.warn(searchValue);
+    createOrder().then((ordersArray) => showOrders(ordersArray));
   });
 };
-*/
 export default navigationEvents;
