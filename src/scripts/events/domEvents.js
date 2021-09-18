@@ -1,6 +1,8 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
-import { createOrder, deleteOrder, updateOrder } from '../helpers/data/orderData';
+import {
+  createOrder, deleteOrder, getOneOrder, updateOrder, viewOrderDetails
+} from '../helpers/data/orderData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -34,6 +36,12 @@ const domEvents = () => {
       createOrder(orderObj).then((ordersArray) => showOrders(ordersArray));
     }
     // CLICK EVENT FOR EDITING N ORDER
+    if (e.target.id.includes('edit-order-btn')) {
+      const [, id] = e.target.id.split('--');
+
+      getOneOrder(id).then((orderObj) => orderForm(orderObj));
+    }
+    // UPDATING AN ORDER
     if (e.target.id.includes('update-order')) {
       e.preventDefault();
       const getKey = e.target.id.split('--');
@@ -49,6 +57,11 @@ const domEvents = () => {
         firebaseKey
       };
       updateOrder(orderObj).then(showOrders);
+    }
+
+    if (e.target.id.includes('view-order-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      viewOrderDetails(firebaseKey).then(showOrders);
     }
   });
 };

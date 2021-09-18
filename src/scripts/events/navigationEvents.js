@@ -1,8 +1,7 @@
 import orderForm from '../components/forms/orderForm';
 import logoutButton from '../components/logoutButton';
-import clearDom from '../helpers/data/clearDom';
+import { getOrders } from '../helpers/data/orderData';
 import { showOrders } from '../components/orders';
-import { createOrder } from '../helpers/data/orderData';
 // navigation events
 const navigationEvents = () => {
   document.querySelector('#create-order').addEventListener('click', () => {
@@ -14,7 +13,7 @@ const navigationEvents = () => {
   });
 
   document.querySelector('#view-order').addEventListener('click', () => {
-    clearDom();
+    getOrders().then((order) => showOrders(order));
   });
   /*
   // LOGOUT BUTTON
@@ -23,7 +22,7 @@ const navigationEvents = () => {
 */
   // CREATE AN ORDER
   document.querySelector('#create-order').addEventListener('click', () => {
-    createOrder().then((ordersArray) => showOrders(ordersArray));
+    orderForm();
   });
 };
 export default navigationEvents;
