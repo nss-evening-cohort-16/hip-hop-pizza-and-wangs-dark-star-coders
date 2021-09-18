@@ -1,4 +1,3 @@
-/*
 import clearDom from '../helpers/data/clearDom';
 
 const showOrders = (array) => {
@@ -31,4 +30,3 @@ const emptyOrders = () => {
 };
 
 export { showOrders, emptyOrders };
-*/

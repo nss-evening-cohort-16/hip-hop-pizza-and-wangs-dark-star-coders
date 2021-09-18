@@ -12,7 +12,7 @@ const startApp = () => {
   navBar();
   navigationEvents();
   logoutButton();
-  getOrders().then((books) => showOrders(books));
+  getOrders().then((order) => showOrders(order));
 };
 
 export default startApp;
