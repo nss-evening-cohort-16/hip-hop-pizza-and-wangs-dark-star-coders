@@ -1,5 +1,6 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
+import viewOrder from '../components/viewOrder';
 import {
   createOrder, deleteOrder, getOneOrder, updateOrder, viewOrderDetails
 } from '../helpers/data/orderData';
@@ -58,7 +59,7 @@ const domEvents = () => {
 
     if (e.target.id.includes('view-order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      viewOrderDetails(firebaseKey).then(showOrders);
+      viewOrderDetails(firebaseKey).then(viewOrder);
     }
   });
 };
