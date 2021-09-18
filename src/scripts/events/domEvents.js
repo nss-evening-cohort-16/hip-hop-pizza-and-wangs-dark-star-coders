@@ -28,7 +28,7 @@ const domEvents = () => {
         name: document.querySelector('#name').value,
         email: document.querySelector('#email').value,
         phone: document.querySelector('#phone').value,
-        orderType: document.querySelector('#orderType').value,
+        orderType: document.querySelector('#orderType').value
       };
       console.warn(orderObj);
       createOrder(orderObj).then((ordersArray) => showOrders(ordersArray));

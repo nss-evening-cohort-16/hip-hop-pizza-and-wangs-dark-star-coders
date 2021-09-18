@@ -1,10 +1,89 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 
-
 body {
-  background-color: antiquewhite;
-  color: brown;
-  text-align: center;
-  margin-top: 100px;
+  background-color: black;
 }
+
+.navbar {
+  color: purple;
+}
+
+.add {
+  background-color: white;
+}
+.navbar-dark .navbar-brand {
+  font-family: "Arial", cursive !important;
+  color:wheat;
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.cart-items {
+  height: 300px;
+  overflow: scroll;
+}
+
+.grey-box {
+  float: left;
+  margin: 2px;
+  width: 200px;
+  height: 200px;
+}
+
+#cart-thumb img {
+  height: 100px;
+}
+
+.logout {
+  margin: 0 20px;
+  font-size: 25px;
+  color: white;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 100px;
+  align-content: center;
+
+  #add-button {
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+  }
+
+  #form-container {
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    color: bisque;
+
+    #formModal {
+      color: black;
+    }
+  }
+
+  #store {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+
+    .card {
+      width: 300px;
+      margin: 5px;
+      background-color: whitesmoke;
+    }
+
+    .table {
+      margin: 10px;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
