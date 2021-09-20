@@ -1,7 +1,10 @@
+import hiphop from '../../../instructions/hhpw-record.png';
+
 const navBar = () => {
   document.querySelector('#navigation').innerHTML = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
-        <a class="navbar-brand title" href="#">HHP&W</a>
+        <a class="navbar-brand title" href="#"></a>
+        <img class = "logo" src="${hiphop}">
         <button
           class="navbar-toggler"
           type="button"
