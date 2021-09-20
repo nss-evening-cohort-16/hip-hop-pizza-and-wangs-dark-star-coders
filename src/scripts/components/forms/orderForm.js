@@ -18,10 +18,10 @@ const orderForm = (obj = {}) => {
           </div>
           <div class="form-group">
           <label for="orderType">Order Type</label>
-          <select class="form-select" aria-label="OrderType" value="${obj.orderType || ''}" required>
+          <select class="form-select" id="orderType" aria-label="orderType" value="${obj.orderType || ''}" required>
             <option selected>Select Order Type</option>
-            <option value="1">Phone</option>
-            <option value="2">In-Person</option>
+            <option value="Phone">Phone</option>
+            <option value="In-Person">In-Person</option>
           </select>
           </div>
           <button type="submit" id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="btn btn-primary">Create/Edit Order</button>
