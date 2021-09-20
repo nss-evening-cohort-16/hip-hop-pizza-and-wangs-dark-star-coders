@@ -25,9 +25,9 @@ const domEvents = () => {
     if (e.target.id.includes('submit-order')) {
       e.preventDefault();
       const orderObj = {
-        name: document.querySelector('#name').value,
-        email: document.querySelector('#email').value,
-        phone: document.querySelector('#phone').value,
+        name: document.querySelector('#orderName').value,
+        email: document.querySelector('#customerEmail').value,
+        phone: document.querySelector('#customerPhone').value,
         orderType: document.querySelector('#orderType').value
       };
       console.warn(orderObj);
@@ -45,13 +45,10 @@ const domEvents = () => {
       const getKey = e.target.id.split('--');
       const [, firebaseKey] = getKey;
       const orderObj = {
-        name: document.querySelector('#name').value,
-        email: document.querySelector('#email').value,
-        phone: document.querySelector('#phone').value,
+        name: document.querySelector('#orderName').value,
+        email: document.querySelector('#customerEmail').value,
+        phone: document.querySelector('#customerPhone').value,
         orderType: document.querySelector('#orderType').value,
-        orderTotal: document.querySelector('#orderTotal').checked,
-        paymentType: document.querySelector('#paymentType').value,
-        tip: document.querySelector('#tip').value,
         firebaseKey
       };
       updateOrder(orderObj).then(showOrders);
