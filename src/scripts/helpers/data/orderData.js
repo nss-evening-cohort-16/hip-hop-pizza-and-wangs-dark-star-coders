@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
 
@@ -39,7 +40,7 @@ const updateOrder = (orderObject) => new Promise((resolve, reject) => {
 });
 
 const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/item.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
+  axios.get(`${dbUrl}/item.json?orderBy="order_id"&equalTo="${firebaseKey}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
@@ -54,10 +55,10 @@ const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
 
 const viewOrderDetails = (orderfirebaseKey) => new Promise((resolve, reject) => {
   getOneOrder(orderfirebaseKey)
-    .then((orderId) => {
-      getOrderItems(orderId.firebaseKey)
+    .then((order_id) => {
+      getOrderItems(order_id.firebaseKey)
         .then((itemObject) => {
-          resolve({ itemObject, ...orderId });
+          resolve({ itemObject, ...order_id });
         });
     }).catch(reject);
 });
