@@ -39,7 +39,7 @@ const updateOrder = (orderObject) => new Promise((resolve, reject) => {
 });
 
 const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/item.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
+  axios.get(`${dbUrl}/item.json?orderBy="order_id"&equalTo="${firebaseKey}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
