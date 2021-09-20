@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
 
@@ -54,10 +55,10 @@ const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
 
 const viewOrderDetails = (orderfirebaseKey) => new Promise((resolve, reject) => {
   getOneOrder(orderfirebaseKey)
-    .then((orderId) => {
-      getOrderItems(orderId.firebaseKey)
+    .then((order_id) => {
+      getOrderItems(order_id.firebaseKey)
         .then((itemObject) => {
-          resolve({ itemObject, ...orderId });
+          resolve({ itemObject, ...order_id });
         });
     }).catch(reject);
 });
