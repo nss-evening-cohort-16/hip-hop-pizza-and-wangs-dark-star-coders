@@ -1,8 +1,11 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
-import viewOrder from '../components/viewOrder';
 import {
-  createOrder, deleteOrder, getOneOrder, updateOrder, viewOrderDetails
+  createOrder,
+  getOrders,
+  deleteOrder,
+  getOneOrder,
+  updateOrder
 } from '../helpers/data/orderData';
 
 const domEvents = () => {
@@ -17,7 +20,7 @@ const domEvents = () => {
       }
     }
     // CLICK EVENT FOR SHOWING FORM FOR CREATING AN ORDER
-    if (e.target.id.includes('create-order-btn')) {
+    if (e.target.id.includes('create-order')) {
       orderForm();
     }
 
@@ -55,8 +58,7 @@ const domEvents = () => {
     }
 
     if (e.target.id.includes('view-order-btn')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      viewOrderDetails(firebaseKey).then(viewOrder);
+      getOrders().then((order) => showOrders(order));
     }
   });
 };
