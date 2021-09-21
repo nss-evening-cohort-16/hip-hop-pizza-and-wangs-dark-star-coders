@@ -19,7 +19,7 @@ const paymentForm = (obj = {}) => {
             <label for="tip">Tip Amount</label>
             <input type="text" class="form-control" id="tip" aria-describedby="tip" placeholder=" " value="${obj.tip || ''}" required>
         </div>
-          <button type="submit" id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="btn btn-primary">Add/ Edit Item</button>
+          <button type="submit" id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="btn btn-primary">Close Order</button>
         </form>`;
 };
 
