@@ -2,9 +2,6 @@ import clearDom from '../helpers/data/clearDom';
 
 const showOrders = (array) => {
   clearDom();
-
-  document.querySelector('#create-order').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="create-order-btn">Create an Order</button>';
-
   array.forEach((item) => {
     document.querySelector('#store').innerHTML += `
     <div class="card" style="width: 18rem;">
