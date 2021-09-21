@@ -73,17 +73,23 @@ body {
   }
 
   #store {
-    width: 90%;
+    width: 30%;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     text-align: center;
     margin: auto;
+    padding: 20px;
     justify-content: center;
-
+    color: white;
+    
     .card {
       width: 300px;
-      margin: 5px;
+      margin: 55px;
       background-color: whitesmoke;
+    }
+
+    .card-header {
+      color: black;
     }
 
     .table {
