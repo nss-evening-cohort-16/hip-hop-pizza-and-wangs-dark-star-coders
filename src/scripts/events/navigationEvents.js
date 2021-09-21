@@ -15,14 +15,5 @@ const navigationEvents = () => {
   document.querySelector('#view-order').addEventListener('click', () => {
     getOrders().then((order) => showOrders(order));
   });
-  /*
-  // LOGOUT BUTTON
-  document.querySelector('#logout-button')
-    .addEventListener('click', signOut);
-*/
-  // CREATE AN ORDER
-  document.querySelector('#create-order').addEventListener('click', () => {
-    orderForm();
-  });
 };
 export default navigationEvents;

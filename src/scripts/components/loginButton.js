@@ -6,7 +6,7 @@ const loginButton = () => {
   const domString = `<button id="google-auth" class="btn btn-danger">GOOGLE LOGIN</button>
   <img src="${hiphop}">`;
 
-  document.querySelector('#login-form-container').innerHTML = domString;
+  document.querySelector('#app').innerHTML = domString;
   document.querySelector('#google-auth').addEventListener('click', signIn);
 };
 

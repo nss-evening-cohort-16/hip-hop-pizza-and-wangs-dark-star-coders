@@ -8,11 +8,11 @@ const paymentForm = (obj = {}) => {
         <label for="paymentType">Payment Type</label>
         <select class="form-select" id="paymentType" value="${obj.paymentType || ''}" required required>
             <option selected>Select Payment Type</option>
-            <option value="1">Cash</option>
-            <option value="2">Check</option>
-            <option value="2">Debit</option>
-            <option value="2">Credit</option>
-            <option value="2">Mobile-Payment</option>
+            <option value="Cash">Cash</option>
+            <option value="Check">Check</option>
+            <option value="Debit">Debit</option>
+            <option value="Credit">Credit</option>
+            <option value="Mobile">Mobile</option>
         </select>
         </div>
         <div class="form-group">
