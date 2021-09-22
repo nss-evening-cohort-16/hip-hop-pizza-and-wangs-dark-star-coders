@@ -1,5 +1,5 @@
 import axios from 'axios';
-import firebaseConfig from '../../../api/apiKeys';
+import firebaseConfig from '../../api/apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -11,8 +11,10 @@ const getItems = () => new Promise((resolve, reject) => {
 
 const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/item/${firebaseKey}.json`)
-    .then(() => getItems().then((response) => resolve(response)))
-    .catch((error) => reject(error));
+    .then(() => {
+      getItems().then(resolve);
+    })
+    .catch(reject);
 });
 
 const createItem = (itemObj) => new Promise((resolve, reject) => {
