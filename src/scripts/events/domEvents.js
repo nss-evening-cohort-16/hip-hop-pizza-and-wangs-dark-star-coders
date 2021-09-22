@@ -1,5 +1,6 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
+import { showRevenue } from '../components/revenue';
 import {
   createOrder,
   getOrders,
@@ -26,9 +27,22 @@ const domEvents = () => {
         deleteOrder(b).then((ordersArray) => showOrders(ordersArray));
       }
     }
+    if (e.target.id.includes('delete-item')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Are you sure you want to delete this item?')) {
+        const getKey = e.target.id.split('--');
+        const [, b] = getKey;
+        deleteItem(b).then((itemsArray) => showRevenue(itemsArray));
+      }
+    }
     // CLICK EVENT FOR SHOWING FORM FOR CREATING AN ORDER
     if (e.target.id.includes('create-order')) {
       orderForm();
+    }
+
+    // CLICK EVENT FOR VIEWING REVENUE
+    if (e.target.id.includes('view-revenue-btn')) {
+      showRevenue();
     }
 
     // CLICK EVENT FOR SUBMITTING FORM FOR CREATING AN ORDER
