@@ -1,14 +1,19 @@
 import orderForm from '../components/forms/orderForm';
 import { showOrders } from '../components/orders';
-import viewOrder from '../components/viewOrder';
 import {
-  createOrder, deleteOrder, getOneOrder, updateOrder, viewOrderDetails
+  createOrder,
+  getOrders,
+  deleteOrder,
+  getOneOrder,
+  updateOrder,
+  viewOrderDetails
 } from '../helpers/data/orderData';
 import itemForm from '../components/forms/itemForm';
 import {
   createItem, deleteItem, getOneItem, updateItem
 } from '../helpers/data/itemData';
 import paymentForm from '../components/forms/paymentForm';
+import viewOrder from '../components/viewOrder';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -22,7 +27,7 @@ const domEvents = () => {
       }
     }
     // CLICK EVENT FOR SHOWING FORM FOR CREATING AN ORDER
-    if (e.target.id.includes('create-order-btn')) {
+    if (e.target.id.includes('create-order')) {
       orderForm();
     }
 
@@ -63,6 +68,10 @@ const domEvents = () => {
       viewOrderDetails(firebaseKey).then(viewOrder);
     }
 
+    if (e.target.id.includes('view-orders-btn')) {
+      getOrders().then((order) => showOrders(order));
+    }
+
     if (e.target.id.includes('add-item-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       itemForm({}, firebaseKey);
@@ -79,12 +88,8 @@ const domEvents = () => {
     }
 
     if (e.target.id.includes('delete-item')) {
-      // eslint-disable-next-line no-alert
-      if (window.confirm('Are you sure you want to delete this item?')) {
-        const [, firebaseKey] = e.target.id.split('--');
-        // eslint-disable-next-line no-undef
-        deleteItem(firebaseKey).then(viewOrderDetails(order_id));
-      }
+      const [, firebaseKey] = e.target.id.split('--');
+      deleteItem(firebaseKey).then(showOrders);
     }
 
     if (e.target.id.includes('edit-item')) {

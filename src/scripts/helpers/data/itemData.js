@@ -11,10 +11,8 @@ const getItems = () => new Promise((resolve, reject) => {
 
 const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/item/${firebaseKey}.json`)
-    .then(() => {
-      getItems().then(resolve);
-    })
-    .catch(reject);
+    .then(() => getItems().then((response) => resolve(response)))
+    .catch((error) => reject(error));
 });
 
 const createItem = (itemObj) => new Promise((resolve, reject) => {

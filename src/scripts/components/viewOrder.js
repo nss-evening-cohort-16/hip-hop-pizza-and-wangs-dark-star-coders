@@ -9,7 +9,6 @@ const viewOrder = (obj) => {
          <div class="mt-5">
            <i id="edit-order-btn--${obj.firebaseKey}" class="fas fa-edit btn btn-info"></i>
            <i id="delete-order--${obj.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
-           <i id="add-item-btn--${obj.firebaseKey}" class="btn btn-primary fas fa-eye"></i>
          </div>
        </div>
        <div class="text-white ms-5 details">
@@ -34,7 +33,7 @@ const viewOrder = (obj) => {
   });
   document.querySelector('#view').innerHTML += `
   <button type="payment-btn--${obj.firebaseKey}" class="btn btn-primary">Payment</button>
-  <button type="button" class="btn btn-secondary">Secondary</button>`;
+  <button type="button" id="add-item-btn--${obj.firebaseKey}" class="btn btn-success">Add Item</button>`;
 };
 
 export default viewOrder;
