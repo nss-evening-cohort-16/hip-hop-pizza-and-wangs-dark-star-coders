@@ -92,9 +92,10 @@ const domEvents = () => {
       deleteItem(firebaseKey).then(showOrders);
     }
 
-    if (e.target.id.includes('edit-item')) {
+    if (e.target.id.includes('edit-item-btn')) {
       const [, id] = e.target.id.split('--');
-      getOneItem(id).then((itemObject) => itemForm(itemObject));
+
+      getOneItem(id).then((itemObj) => itemForm(itemObj));
     }
 
     if (e.target.id.includes('update-item')) {

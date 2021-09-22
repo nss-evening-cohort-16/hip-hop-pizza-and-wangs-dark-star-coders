@@ -32,8 +32,8 @@ const viewOrder = (obj) => {
         </div>`;
   });
   document.querySelector('#view').innerHTML += `
-  <button type="payment-btn--${obj.firebaseKey}" class="btn btn-primary">Payment</button>
-  <button type="button" id="add-item-btn--${obj.firebaseKey}" class="btn btn-success">Add Item</button>`;
+  <button id="payment-btn--${obj.firebaseKey}" class="btn btn-primary">Payment</button>
+  <button id="add-item-btn--${obj.firebaseKey}" class="btn btn-success">Add Item</button>`;
 };
 
 export default viewOrder;
