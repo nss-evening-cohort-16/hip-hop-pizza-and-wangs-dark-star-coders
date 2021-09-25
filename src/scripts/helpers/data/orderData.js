@@ -45,11 +45,11 @@ const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
-  getOrderItems(orderId).then((orderItemArray) => {
+const deleteOrderItems = (order_id) => new Promise((resolve, reject) => {
+  getOrderItems(order_id).then((orderItemArray) => {
     const deleteItems = orderItemArray.map((item) => deleteItems(item.firebaseKey));
 
-    Promise.all([...deleteItems]).then(() => resolve(deleteOrder(orderId)));
+    Promise.all([...deleteItems]).then(() => resolve(deleteOrder(order_id)));
   }).catch(reject);
 });
 
