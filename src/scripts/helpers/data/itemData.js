@@ -1,5 +1,6 @@
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
+import { getOrders } from './orderData';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -11,16 +12,19 @@ const getItems = () => new Promise((resolve, reject) => {
 
 const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/item/${firebaseKey}.json`)
-    .then(() => getItems().then((response) => resolve(response)))
+    .then(() => getOrders().then((response) => resolve(response)))
     .catch((error) => reject(error));
 });
 
 const createItem = (itemObj) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/item.json`, itemObj)
-    .then(() => {
-      getItems().then(resolve);
-    })
-    .catch(reject);
+    .then((response) => {
+      const body = { firebaseKey: response.data.name };
+      axios.patch(`${dbUrl}/item/${response.data.name}.json`, body)
+        .then(() => {
+          getItems().then(resolve);
+        });
+    }).catch(reject);
 });
 
 const getOneItem = (firebaseKey) => new Promise((resolve, reject) => {
@@ -31,7 +35,7 @@ const getOneItem = (firebaseKey) => new Promise((resolve, reject) => {
 
 const updateItem = (itemObj) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/item/${itemObj.firebaseKey}.json`, itemObj)
-    .then(() => getItems().then(resolve))
+    .then(() => getOrders().then(resolve))
     .catch(reject);
 });
 
